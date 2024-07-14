@@ -1,0 +1,15 @@
+.pai-carrosel{
+  overflow: hidden;
+}
+.component-carrosel{
+  margin-top: 18px;
+  margin-left: 10px;
+  outline: none;
+}
+.component-carrosel img{
+  outline: none;
+  border-radius: 18px;
+  width: 96%; /* Garante que a imagem ocupe toda a largura do seu contêiner */
+  height: auto; /* Mantém a proporção da imagem */
+  border: 0;
+}

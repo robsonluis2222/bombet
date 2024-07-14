@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+.elements-filter{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 38px;
+  margin-top: 28px;
+}
+.element-filter{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.element-filter i{
+  font-size: 22px;
+}
+#all-icon{
+  color: rgb(160, 160, 160);
+}
+#slots-icon{
+  color: white;
+}
+#favorite-icon{
+  color: red;
+}
+.selector{
+  width: 60px;
+  height: 2px;
+  color: #C15473;
+}
+.filter-name{
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  color: white;
+}

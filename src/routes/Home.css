@@ -1,0 +1,39 @@
+.limited-space{
+  display: flex;
+  flex-direction: column;
+  margin-top: 120px;
+  max-width: 400px;
+  width: 100vh;
+  height: auto;
+  min-height: 100vh;
+  background-color: #C15473;
+  overflow-y: auto; /* Adiciona scroll vertical se o conteúdo ultrapassar a altura */
+  scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+.search-game{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18px;
+}
+.search-input{
+  background-color: #5E3441;
+  width: 80%;
+  padding: 14px 18px;
+  color: white;
+  border: 1px solid yellow;
+  outline: none;
+  border-radius: 10px;
+}
+.search-input::placeholder{
+  color: white;
+}
+.games-organize{
+  display: flex;
+  margin-top: 28px;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 	18px;
+}

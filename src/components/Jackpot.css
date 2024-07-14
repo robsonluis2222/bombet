@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+CZ:wght@100..400&display=swap');
+
+.jackpot-div{
+  margin-top: 18px;
+}
+.jackpot-div img{
+  width: 100%;
+}
+.jackpot-value{
+  position: relative;
+  margin-top: -57px;
+  margin-left: 100px;
+  font-size: 18px;
+  cursor: default;
+  letter-spacing: 5px;
+  color: #FFDF45;
+  font-family: "Playwrite CZ", cursive;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}

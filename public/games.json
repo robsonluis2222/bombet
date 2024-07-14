@@ -1,0 +1,52 @@
+{
+  "games": [
+    {
+      "name": "Fortune Tiger",
+      "img": "https://www.pgsoft.com/uploads/Games/Images/c84dcb96-06bb-4377-a0a7-3b561fac92f8.png"
+    },
+    {
+      "name": "Fortune Mouse",
+      "img": "https://www.pgsoft.com/uploads/Games/Images/dcb0a0c8-86e4-4f81-a738-46fb29bf7c6a.png"
+    },
+    {
+      "name": "Fortune OX",
+      "img": "https://www.pgsoft.com/uploads/Games/Images/dad28553-b44b-41d9-9e8f-1188f7ffd995.png"
+    },
+    {
+      "name": "Fortune Dragon",
+      "img": "https://www.pgsoft.com/uploads/Games/Images/6db8b734-210d-4c7f-b427-0480a05a9e7d.png"
+    },
+    {
+      "name": "Rouster Rumble",
+      "img": "https://www.pgsoft.com/uploads/Games/Images/94e8b93e-2192-4a9c-a8e7-828e40832de3.png"
+    },
+    {
+      "name": "Garuda Gems",
+      "img": "https://www.pgsoft.com/uploads/Games/Images/16ad88bc-6789-4bde-89e6-68aaedfaa83e.png"
+    },
+    {
+      "name": "Mahjong Ways",
+      "img": "https://www.pgsoft.com/uploads/Games/Images/cc01fe53-8f40-4299-9809-5a9e6f3ebb9a.png"
+    },
+    {
+      "name": "Spirited Wonders",
+      "img": "https://www.pgsoft.com/uploads/Games/Images/199235bb-b8a9-4a54-a63f-0c7120724841.png"
+    },
+    {
+      "name": "Battle Royale",
+      "img": "https://www.pgsoft.com/uploads/Games/Images/5e1ec796-e36a-4efc-934c-60b500bdcacc.png"
+    },
+    {
+      "name": "Wild Bandito",
+      "img": "https://www.pgsoft.com/uploads/Games/Images/2da32de9-7d53-4043-afa8-bb5dd4d9f25b.png"
+    },
+    {
+      "name":"Pinata Wins",
+      "img":"https://www.pgsoft.com/uploads/Games/Images/5065b967-4b74-40f9-918a-470557b9b942.png"
+    },
+    {
+      "name":"Safari Wilds",
+      "img":"https://www.pgsoft.com/uploads/Games/Images/ee6e5685-a253-4522-a178-17af607f1242.png"
+    }
+  ]
+}

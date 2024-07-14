@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+.limited-space-nav{
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  max-width: 400px;
+  width: 100vh;
+  height: 60px;
+  background-color: #B94B6B;
+  gap: 18px;
+}
+#hamburguer{
+  font-size: 30px;
+  padding-left: 18px;
+  color: white;
+  transition: transform 0.3s ease;
+}
+.action-account{
+  display: flex;
+  gap: 18px;
+  position: absolute;
+  right: 0;
+  padding-right: 8px;
+}
+.style-login-btn{
+  background-color: #FFE34F;
+  color: #B94B6B;
+  padding: 8px 8px;
+  border-radius: 8px;
+}
+.modal-account{
+  display: none;
+  position: fixed;
+  top:0;
+  left: 0;
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.account-div{
+    position: fixed;
+    width: 300px;
+    height: 350px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    z-index: 1000; /* Garante que a modal esteja acima do overlay */
+    display: flex; /* Inicialmente oculto */
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: #C15473;
+}
+.select-login-type{
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+  margin-top: 18px;
+}
+.modal-login-btn{
+  padding: 12px 35px;
+  background-color: #523C3F;
+  color: white;
+  border-radius: 30px 0 0 30px; /* top-left, top-right, bottom-right, bottom-left */
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;
+}
+.modal-register-btn{
+  padding: 12px 35px;
+  background-color: #523C3F;
+  color: white;
+  border-radius: 0 30px 30px 0; /* top-left, top-right, bottom-right, bottom-left */
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;
+}
+#close-modal-btn{
+  color: white;
+  position: absolute;
+  font-weight: bold;
+  cursor: pointer;
+  right: 0;
+  top: 0;
+  padding: 10px;
+}
+.modal-inputs{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 18px;
+  gap: 18px;
+}
+.number-input{
+  padding: 12px 12px;
+  padding-left: 48px;
+  background-color: transparent;
+  outline: none;
+  border: 1px solid rgba(178, 190, 195, 0.5);
+  width: 220px;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+}
+.number-input::placeholder{
+  color: white;
+}
+.password-input{
+  padding: 12px 12px;
+  background-color: transparent;
+  outline: none;
+  border: 1px solid rgba(178, 190, 195, 0.5);
+  width: 253px;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+}
+.password-input::placeholder{
+  color: white;
+}
+.prefix {
+  position: absolute;
+  top: 137px;
+  left: 40px;
+  transform: translateY(-50%);
+  pointer-events: none; /* Evita interação com o prefixo */
+  font-size: 18px; /* Ajuste conforme necessário */
+  font-weight: bold;
+  color: white; /* Cor do texto do prefixo */
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+#eye{
+  position: fixed;
+  margin-top:-50px;
+  right: 0;
+  margin-right: 45px;
+  cursor: pointer;
+  font-size: 22px;
+  color: rgb(155, 154, 154);
+}
+.esqueci-a-senha{
+  color: white;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  cursor: pointer;
+  text-align: center;
+}
+.submit-form{
+  padding: 12px 120px;
+  background-color: #FFE34F;
+  border-radius: 10px;
+  color: #B94B6B;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  cursor: pointer;
+}
+.menu{
+  position: fixed;
+  display: none;
+  align-items: flex-start;
+  flex-direction: column;
+  top: 60px;
+  width: 200px;
+  height: 100vh;
+  background-color: #B94B6B;
+  border-right: 1px solid white;
+  animation: slideFromLeft 1s;
+}
+.menu-item{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 90%;
+  height: 70px;
+  padding-left: 20px;
+}
+.menu-item i{
+  font-size: 40px;
+}
+.menu-item span{
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  color: white;
+  position: relative;
+  top: -8px;
+  left: 10px;
+  font-size: 20px;
+}
+.menu-item:hover{
+  background-color: #E06F8B;
+}
+#t-icon{
+  color: rgb(168, 168, 168);
+}
+#s-icon{
+  color: black;
+}
+#d-icon{
+  color: #1f1a1b;
+}
+#sa-icon{
+  color: rgb(21, 175, 21);
+}
+
+@keyframes slideFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
