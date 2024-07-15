@@ -259,6 +259,11 @@
 #sa-icon{
   color: rgb(21, 175, 21);
 }
+.link-style{
+  outline: none;
+  text-decoration: none;
+  width: 100%;
+}
 
 @keyframes slideFromLeft {
   0% {

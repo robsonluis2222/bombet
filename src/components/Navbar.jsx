@@ -20,17 +20,8 @@ const Navbar = () => {
       menuRef.current.style.display = 'none';
 
       setMenuShow(false)
-      window.location.href = '/'
   }
 
-  const linkTo = (linker) => {
-    if(linker === 'recharge'){
-      window.location.href = '/recharge'
-    }
-    if(linker === 'withdraw'){
-      window.location.href = '/withdraw'
-    }
-  }
 
   const girarReload = () => {
     const icone = document.getElementById('reload-saldo');
@@ -113,22 +104,30 @@ const Navbar = () => {
     <div className='limited-space-nav'>
 
       <div className='menu' ref={menuRef}>
+        <Link className='link-style' to='/'>
         <div className='menu-item' onClick={closeMenu}>
           <i class="bi bi-border-all" id='t-icon'></i>
           <span>Todos</span>
         </div>
+        </Link>
+        <Link className='link-style' to='/'>
         <div className='menu-item' onClick={closeMenu}>
           <i class="bi bi-dice-6-fill" id='s-icon'></i>
           <span>Slots</span>
         </div>
-          <div className='menu-item' onClick={() => linkTo('recharge')}>
+        </Link>
+          <Link className='link-style' to='/recharge'>
+          <div className='menu-item' onClick={() => closeMenu()}>
             <i class="bi bi-piggy-bank-fill" id='d-icon'></i>
             <span>Depósito</span>
           </div>
-        <div className='menu-item' onClick={() => linkTo('withdraw')}>
-          <i class="bi bi-cash-coin" id='sa-icon'></i>
-          <span>Saque</span>
-        </div>
+          </Link>
+          <Link className='link-style' to='/withdraw'>
+          <div className='menu-item' onClick={() => closeMenu()}>
+            <i class="bi bi-cash-coin" id='sa-icon'></i>
+            <span>Saque</span>
+          </div>
+          </Link>
       </div>
 
       <div className='modal-account' ref={modalRef}>
