@@ -49,7 +49,12 @@ const Navbar = () => {
     let senha = passwordRef.current.value
     api.get(`/registro.php?param1=${telefone}&param2=${senha}`)
     .then(response => {
-      console.log(response.data)
+      if(response.data == true){
+        setIsLogged(true)
+        closeModal()
+      } else{
+        console.log("credenciais invalidas")
+      }
     })
     .catch(error => {
       console.log(error)
