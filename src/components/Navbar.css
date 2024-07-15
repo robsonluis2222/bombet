@@ -25,12 +25,50 @@
   right: 0;
   padding-right: 8px;
 }
+.login-register-btn{
+  display: flex;
+  gap: 18px;
+}
 .style-login-btn{
   background-color: #FFE34F;
   color: #B94B6B;
   padding: 8px 8px;
   border-radius: 8px;
 }
+.saldo-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-right: 8px;
+  background-color: transparent;
+  border: 3px solid yellow;
+  padding: 6px 10px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+#adicionar-saldo{
+  font-size: 22px;
+  font-weight: bold;
+  color: #A6A6A6;
+}
+.saldo-span{
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-size: 18px;
+}
+#reload-saldo{
+  font-size: 22px;
+  font-weight: bold;
+  color: #FD4B03;
+  transition: transform 1s;
+}
+#reload-saldo:hover{
+  transform: rotate(360deg);
+}
+
 .modal-account{
   display: none;
   position: fixed;

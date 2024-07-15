@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import {api} from '../provider'
 import './Navbar.css'
 
 const Navbar = () => {
@@ -6,11 +7,46 @@ const Navbar = () => {
   const entrarRef = useRef(null)
   const registrarRef = useRef(null)
   const passwordRef = useRef(null)
+  const numberRef = useRef(null)
   const menuRef = useRef(null)
 
   const [showed, setShowed] = useState(false)
   const [action, setAction] = useState(null)
   const [menuShow, setMenuShow] = useState(false)
+  const [isLogged, setIsLogged] = useState(false)
+
+  const girarReload = () => {
+    const icone = document.getElementById('reload-saldo');
+    icone.classList.toggle('reload-rotacionado');
+  }
+
+  const handleLogin = () => {
+    let telefone = numberRef.current.value
+    let senha = passwordRef.current.value
+    api.get(`/login.php?param1=${telefone}&param2=${senha}`)
+    .then(response => {
+      if(response.data == true){
+        setIsLogged(true)
+        closeModal()
+      } else{
+        console.log("credenciais invalidas")
+      }
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  }
+  const handleRegister = () => {
+    let telefone = numberRef.current.value
+    let senha = passwordRef.current.value
+    api.get(`/registro.php?param1=${telefone}&param2=${senha}`)
+    .then(response => {
+      console.log(response.data)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  }
 
   const menuAction = () => {
     if(menuShow === false){
@@ -87,10 +123,10 @@ const Navbar = () => {
           </div>
           <div className='modal-inputs'>
             <span className="prefix">+55</span>
-            <input className='number-input' type="text" placeholder='Número de telefone' />
+            <input className='number-input' type="text" placeholder='Número de telefone' ref={numberRef} />
             <i className="bi bi-eye" id='eye' onClick={() => showPassword()}></i>
             <input className='password-input' type="password" ref={passwordRef} placeholder='Senha' />
-            {action === 'login' ? <span className='submit-form'>Entrar</span> : <span className='submit-form'>Cadastrar</span>}
+            {action === 'login' ? <span className='submit-form' onClick={() => handleLogin()}>Entrar</span> : <span className='submit-form' onClick={() => handleRegister()}>Cadastrar</span>}
             {action === 'login' ? (
                 <span className='esqueci-a-senha'>Esqueci a senha</span>
               ) : (
@@ -109,8 +145,20 @@ const Navbar = () => {
       <i className="bi bi-list" id="hamburguer" onClick={() => menuAction()}></i>
       <img src="https://w1-bombet.com/_nuxt/img/logo1.3ad5d45.png" alt="logo" />
       <div className='action-account'>
-        <span className='style-login-btn' onClick={() => loginCaller()}>Entrar</span>
-        <span className='style-login-btn' onClick={() => registerCaller()}>Registro</span>
+        {isLogged === false ? (
+          <div className='login-register-btn'>
+            <span className='style-login-btn' onClick={() => loginCaller()}>Entrar</span>
+            <span className='style-login-btn' onClick={() => registerCaller()}>Registro</span>
+          </div>
+        ) : (
+          <div className='saldo-div'>
+            <span className="reload-icon">
+              <i class="bi bi-plus-lg" id="reload-saldo"></i>
+            </span>
+            <span className='saldo-span'>R$ 0</span>
+            <i className="bi bi-arrow-clockwise" id='reload-saldo' onClick={girarReload}></i>
+          </div>
+        )}
       </div>
     </div>
   )

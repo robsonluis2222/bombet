@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+
+.deposit-div{
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 28px;
+  background-color: #C15473;
+  max-width: 400px;
+  width: 100vh;
+  height: 100vh;
+}
+#back-deposit{
+  position: relative;
+  margin-right: 300px;
+  top: 28px;
+  font-size: 22px;
+  color: white;
+  font-weight: bold;
+}
+.deposit-title{
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  color: white;
+  font-size: 22px;
+}
+.methods{
+  margin-top: 28px;
+  padding: 15px 50px;
+  border: 1px solid #FFE34F;
+  border-radius: 15px;
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  cursor: pointer;
+  color: #FFE34F;
+  font-size: 18px;
+}
+.value-recharge{
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.input-deposit-value{
+  background-color: transparent;
+  border: 1px solid #FFE34F;
+  width: 300px;
+  outline: none;
+  color: white;
+  font-size: 20px;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+.input-deposit-value::placeholder{
+  color: white;
+  font-size: 18px;
+}
+.finish-deposit-btn{
+  width: 300px;
+  margin-top: 10px;
+  background-color: #FFE34F;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #AB4A39;
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.aviso-minimo{
+  color: rgb(158, 40, 40);
+  position: absolute;
+  margin-top: 38px;
+}
+.payment-processed{
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 28px;
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  color: white;
+}
+.img-qr-code{
+  width: 200px;
+}
+.copiar-qr{
+  padding: 10px 30px;
+  background-color: transparent;
+  border: 1px solid #FFE34F;
+  border-radius: 10px;
+  cursor: pointer;
+}
+#fechar-qr-code{
+  font-size: 20px;
+  color: white;
+  position: absolute;
+}
