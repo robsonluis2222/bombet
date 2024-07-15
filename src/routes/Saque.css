@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+.saque-div{
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 28px;
+  background-color: #C15473;
+  max-width: 400px;
+  width: 100vh;
+  height: 100vh;
+}
+.saldo-span-saque{
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  color: white;
+  padding: 10px 20px;
+  border: 1px solid #FFE34F;
+  border-radius: 10px;
+}
+.input-value-saque{
+  background-color: transparent;
+  outline: none;
+  border: 1px solid #FFE34F;
+  border-radius: 5px;
+  padding: 10px 10px;
+  margin-top: 18px;
+  margin-bottom: 5px;
+}
+.saque-btn{
+  background-color: #d6c98e;
+  color: #C15473;
+  outline: none;
+  border: 0;
+  padding: 15px 75px;
+  border-radius: 10px;
+}
+.saque-title{
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  color: white;
+  margin-bottom: 18px;
+  font-size: 20px;
+}
+.spacement{
+  margin-bottom: 18px;
+}
+#warn{
+  color: rgb(158, 40, 40);
+}

@@ -19,9 +19,14 @@ const Deposit = () => {
   }
 
   const paymentProcess = (final) => {
+    const idTransation = Math.floor(1000 + Math.random() * 9000);
+    const hoje = new Date();
+    const amanha = new Date(hoje);
+    amanha.setDate(hoje.getDate() + 1);
+    const formattedDate = `${amanha.getFullYear()}-${String(amanha.getMonth() + 1).padStart(2, '0')}-${String(amanha.getDate()).padStart(2, '0')}`;
     suitpay.post('/api/v1/gateway/request-qrcode', {
-      "requestNumber": "1186",
-      "dueDate": "2024-07-15",
+      "requestNumber": String(idTransation),
+      "dueDate": formattedDate,
       "amount": Number(final),
       "discountAmount": 0.0,
       "client": {
@@ -73,7 +78,6 @@ const Deposit = () => {
         {depositValue < 10 ? <span className='aviso-minimo'>min. 10</span> : (<input hidden />)}
         <span className='finish-deposit-btn' onClick={() => paymentProcess(depositValue)}>Depósito</span>
       </div>
-      <i class="bi bi-arrow-up-short" id='fechar-qr-code'></i>
       <div className='payment-processed' ref={paymentRef}>
         <span>R$ {valueFinal}</span>
         <img className='img-qr-code' src={`data:image/png;base64,${base64String}`} alt="Imagem Base64" />

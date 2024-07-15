@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Home.css';
 import Carrosel from '../components/Carrosel';
 import Jackpot from '../components/Jackpot';
@@ -8,6 +8,8 @@ import Footer from '../components/Footer';
 
 const Home = () => {
   const [games, setGames] = useState([]);
+
+  const warnRef = useRef(null)
 
   useEffect(() => {
     const fetchGames = async () => {
@@ -28,6 +30,15 @@ const Home = () => {
     fetchGames();
   }, []);
 
+  const showWarning = () => {
+    warnRef.current.style.display = 'flex';
+
+    // Set a timeout to hide the warning after 2 seconds
+    setTimeout(() => {
+      warnRef.current.style.display = 'none';
+    }, 3000); // 2000 milliseconds = 2 seconds
+  }
+
   return (
     <div className='limited-space'>
       <div className='home-content'>
@@ -37,7 +48,8 @@ const Home = () => {
           <input className='search-input' type="text" placeholder='Por favor insira o nome do jogo' />
         </div>
         <Filter />
-        <div className='games-organize'>
+        <span className='warn-game' ref={warnRef}><i class="bi bi-exclamation-triangle-fill" id='warn-icon'></i> Entre e faça o primeiro depósito para jogar.</span>
+        <div className='games-organize' onClick={() => showWarning()}>
           {games.map((elem, index) => (
             <Game key={index} image={elem.img} name={elem.name} />
           ))}

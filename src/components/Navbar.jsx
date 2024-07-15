@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import {Link} from 'react-router-dom'
 import {api} from '../provider'
 import './Navbar.css'
 
@@ -14,6 +15,22 @@ const Navbar = () => {
   const [action, setAction] = useState(null)
   const [menuShow, setMenuShow] = useState(false)
   const [isLogged, setIsLogged] = useState(false)
+
+  const closeMenu = () => {
+      menuRef.current.style.display = 'none';
+
+      setMenuShow(false)
+      window.location.href = '/'
+  }
+
+  const linkTo = (linker) => {
+    if(linker === 'recharge'){
+      window.location.href = '/recharge'
+    }
+    if(linker === 'withdraw'){
+      window.location.href = '/withdraw'
+    }
+  }
 
   const girarReload = () => {
     const icone = document.getElementById('reload-saldo');
@@ -96,19 +113,19 @@ const Navbar = () => {
     <div className='limited-space-nav'>
 
       <div className='menu' ref={menuRef}>
-        <div className='menu-item'>
+        <div className='menu-item' onClick={closeMenu}>
           <i class="bi bi-border-all" id='t-icon'></i>
           <span>Todos</span>
         </div>
-        <div className='menu-item'>
+        <div className='menu-item' onClick={closeMenu}>
           <i class="bi bi-dice-6-fill" id='s-icon'></i>
           <span>Slots</span>
         </div>
-        <div className='menu-item'>
-          <i class="bi bi-piggy-bank-fill" id='d-icon'></i>
-          <span>Depósito</span>
-        </div>
-        <div className='menu-item'>
+          <div className='menu-item' onClick={() => linkTo('recharge')}>
+            <i class="bi bi-piggy-bank-fill" id='d-icon'></i>
+            <span>Depósito</span>
+          </div>
+        <div className='menu-item' onClick={() => linkTo('withdraw')}>
           <i class="bi bi-cash-coin" id='sa-icon'></i>
           <span>Saque</span>
         </div>
@@ -143,7 +160,7 @@ const Navbar = () => {
       </div>
 
       <i className="bi bi-list" id="hamburguer" onClick={() => menuAction()}></i>
-      <img src="https://w1-bombet.com/_nuxt/img/logo1.3ad5d45.png" alt="logo" />
+      <Link to='/'><img src="https://i.imgur.com/mraEE3y.png" alt="logo" /></Link>
       <div className='action-account'>
         {isLogged === false ? (
           <div className='login-register-btn'>
@@ -153,7 +170,9 @@ const Navbar = () => {
         ) : (
           <div className='saldo-div'>
             <span className="reload-icon">
-              <i class="bi bi-plus-lg" id="reload-saldo"></i>
+              <Link to="/recharge">
+                <i class="bi bi-plus-lg" id="adicionar-saldo"></i>
+              </Link>
             </span>
             <span className='saldo-span'>R$ 0</span>
             <i className="bi bi-arrow-clockwise" id='reload-saldo' onClick={girarReload}></i>

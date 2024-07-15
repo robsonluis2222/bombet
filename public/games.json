@@ -47,6 +47,30 @@
     {
       "name":"Safari Wilds",
       "img":"https://www.pgsoft.com/uploads/Games/Images/ee6e5685-a253-4522-a178-17af607f1242.png"
+    },
+    {
+      "name":"Tree of Fortune",
+      "img":"https://public.pg-demo.com/pages/static/image/en/Small_Icon/26/app_icon_small@3x-e48dcbf8.png"
+    },
+    {
+      "name":"Fortune Gods",
+      "img":"https://public.pg-demo.com/pages/static/image/en/Small_Icon/3/app_icon_small@3x-1fcf1f40.png"
+    },
+    {
+      "name":"Dragon Hatch",
+      "img":"https://public.pg-demo.com/pages/static/image/en/Small_Icon/57/app_icon_small@3x-7ffbc8d6.png"
+    },
+    {
+      "name":"Chicky Run",
+      "img":"https://public.pg-demo.com/pages/static/image/en/Small_Icon/chicky-run/app_icon_small@3x-3aab2440.png"
+    },
+    {
+      "name":"Cash Mania",
+      "img":"https://public.pg-demo.com/pages/static/image/en/Small_Icon/cash-mania/app_icon_small@3x-fbc6adf6.png"
+    },
+    {
+      "name":"F. Rabbit",
+      "img":"https://public.pg-demo.com/pages/static/image/en/Small_Icon/fortune-rabbit/app_icon_small@3x-518292a0.png"
     }
   ]
 }
