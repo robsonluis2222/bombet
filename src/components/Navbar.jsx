@@ -15,6 +15,15 @@ const Navbar = () => {
   const [action, setAction] = useState(null)
   const [menuShow, setMenuShow] = useState(false)
   const [isLogged, setIsLogged] = useState(false)
+  const [numberChecked, setNumberChecked] = useState(null)
+
+  const numberVerification = (e) => {
+    const value = e.target.value;
+    // Verifica se o valor inserido é numérico
+    if (!isNaN(value)) {
+      setNumberChecked(value); // Atualiza o estado apenas se for numérico
+    }
+  }
 
   const closeMenu = () => {
       menuRef.current.style.display = 'none';
@@ -37,7 +46,7 @@ const Navbar = () => {
         setIsLogged(true)
         closeModal()
       } else{
-        console.log("credenciais invalidas")
+        alert("Credenciais inválidas")
       }
     })
     .catch(error => {
@@ -53,7 +62,7 @@ const Navbar = () => {
         setIsLogged(true)
         closeModal()
       } else{
-        console.log("credenciais invalidas")
+        alert("Credenciais inválidas")
       }
     })
     .catch(error => {
@@ -144,7 +153,7 @@ const Navbar = () => {
           </div>
           <div className='modal-inputs'>
             <span className="prefix">+55</span>
-            <input className='number-input' type="text" placeholder='Número de telefone' ref={numberRef} />
+            <input className='number-input' type="text" placeholder='Número de telefone' ref={numberRef} onChange={numberVerification} value={numberChecked} />
             <i className="bi bi-eye" id='eye' onClick={() => showPassword()}></i>
             <input className='password-input' type="password" ref={passwordRef} placeholder='Senha' />
             {action === 'login' ? <span className='submit-form' onClick={() => handleLogin()}>Entrar</span> : <span className='submit-form' onClick={() => handleRegister()}>Cadastrar</span>}
