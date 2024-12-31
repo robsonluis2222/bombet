@@ -16,7 +16,11 @@ const Jackpot = () => {
 
   return (
     <div className='jackpot-div'>
-      <img src="https://w1-bombet.com/_nuxt/img/jackpot-bg.8a334cc.png" alt="jackpot-img" />
+      <img
+        src="https://2025pg7.com/_nuxt/img/jackpot-bg1.be23ad5.webp"
+        alt="jackpot-img"
+        style={{width: '100%'}}
+      />
       <h2 className='jackpot-value'>{jackpot.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</h2>
     </div>
   )

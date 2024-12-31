@@ -49,9 +49,9 @@ const Home = () => {
         </div>
         <Filter />
         <span className='warn-game' ref={warnRef}><i class="bi bi-exclamation-triangle-fill" id='warn-icon'></i> Entre e faça o primeiro depósito para jogar.</span>
-        <div className='games-organize' onClick={() => showWarning()}>
+        <div className='games-organize' onClick={showWarning}>
           {games.map((elem, index) => (
-            <Game key={index} image={elem.img} name={elem.name} />
+            <Game key={index} image={elem.img} name={elem.name}/>
           ))}
         </div>
         <Footer />

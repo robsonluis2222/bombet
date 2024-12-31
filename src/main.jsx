@@ -6,6 +6,7 @@ import Home from './routes/Home.jsx'
 import Deposit from './routes/Deposit.jsx'
 import Saque from './routes/Saque.jsx'
 import './index.css'
+import Play from './routes/Play.jsx'
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: '/withdraw',
         element: <Saque />
+      },
+      {
+        path: '/play',
+        element: <Play />
       }
     ]
   }

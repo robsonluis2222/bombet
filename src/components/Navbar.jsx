@@ -38,37 +38,41 @@ const Navbar = () => {
   }
 
   const handleLogin = () => {
-    let telefone = numberRef.current.value
-    let senha = passwordRef.current.value
-    api.get(`/login.php?param1=${telefone}&param2=${senha}`)
-    .then(response => {
-      if(response.data == true){
-        setIsLogged(true)
-        closeModal()
-      } else{
-        alert("Credenciais inválidas")
-      }
-    })
-    .catch(error => {
-      console.log(error)
-    })
+    let telefone = numberRef.current.value;
+    let senha = passwordRef.current.value;
+
+    // Buscar as credenciais salvas no localStorage
+    let savedTelefone = localStorage.getItem('telefone');
+    let savedSenha = localStorage.getItem('senha');
+
+    // Verificar se as credenciais passadas pelo usuário são válidas
+    if (telefone === savedTelefone && senha === savedSenha) {
+      setIsLogged(true);
+      closeModal();
+    } else {
+      alert("Credenciais inválidas");
+    }
   }
+
   const handleRegister = () => {
-    let telefone = numberRef.current.value
-    let senha = passwordRef.current.value
-    api.get(`/registro.php?param1=${telefone}&param2=${senha}`)
-    .then(response => {
-      if(response.data == true){
-        setIsLogged(true)
-        closeModal()
-      } else{
-        alert("Credenciais inválidas")
-      }
-    })
-    .catch(error => {
-      console.log(error)
-    })
+    let telefone = numberRef.current.value;
+    let senha = passwordRef.current.value;
+
+    // Salvar os dados no localStorage
+    localStorage.setItem('telefone', telefone);
+    localStorage.setItem('senha', senha);
+
+    // Simular o sucesso do registro
+    const isRegistered = true; // Aqui você pode verificar se os dados foram realmente salvos corretamente, se necessário
+
+    if (isRegistered) {
+      setIsLogged(true);
+      closeModal();
+    } else {
+      alert("Credenciais inválidas");
+    }
   }
+
 
   const menuAction = () => {
     if(menuShow === false){
