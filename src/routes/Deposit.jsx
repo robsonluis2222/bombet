@@ -37,7 +37,6 @@ const Deposit = () => {
   const handleQRCodeClick = () => {
     // Atualiza o localStorage com o valor 360 quando o QR Code for clicado
     localStorage.setItem('saldo', '360');
-    alert('Valor de depósito atualizado para 360!');
   };
 
   return (
