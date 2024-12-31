@@ -34,6 +34,12 @@ const Deposit = () => {
     }
   };
 
+  const handleQRCodeClick = () => {
+    // Atualiza o localStorage com o valor 360 quando o QR Code for clicado
+    localStorage.setItem('saldo', '360');
+    alert('Valor de depósito atualizado para 360!');
+  };
+
   return (
     <div className='deposit-div'>
       <Link to="/">
@@ -65,9 +71,15 @@ const Deposit = () => {
       </div>
       <div className='payment-processed' ref={paymentRef} style={{ display: 'none' }}>
         <span>R$ {valueFinal}</span>
-        <img className='img-qr-code' style={{width: '150px'}} src={Qrcode} alt="Imagem Base64" />
+        <img
+          className='img-qr-code'
+          style={{ width: '150px' }}
+          src={Qrcode}
+          alt="Imagem Base64"
+          onClick={handleQRCodeClick}  // Adiciona o manipulador de clique aqui
+        />
         <span className='copiar-qr' onClick={copyCode}>Copiar QR CODE</span>
-        <input type="text" style={{marginBottom: '40px'}} value={'00020101021226830014BR.GOV.BCB.PIX2561qrcodespix.sejaefi.com.br/v2/38d377954e2a43e091c2d70978397ff05204000053039865802BR5905EFISA6008SAOPAULO62070503***63042890'} ref={inputRef} readOnly />
+        <input type="text" style={{ marginBottom: '40px' }} value={'00020101021226830014BR.GOV.BCB.PIX2561qrcodespix.sejaefi.com.br/v2/38d377954e2a43e091c2d70978397ff05204000053039865802BR5905EFISA6008SAOPAULO62070503***63042890'} ref={inputRef} readOnly />
       </div>
     </div>
   );

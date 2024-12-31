@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react'
-import {Link} from 'react-router-dom'
-import {api} from '../provider'
+import { Link } from 'react-router-dom'
 import './Navbar.css'
 
 const Navbar = () => {
@@ -16,36 +15,38 @@ const Navbar = () => {
   const [menuShow, setMenuShow] = useState(false)
   const [isLogged, setIsLogged] = useState(false)
   const [numberChecked, setNumberChecked] = useState(null)
+  const [saldo, setSaldo] = useState(0)  // Estado para armazenar o saldo
 
   const numberVerification = (e) => {
     const value = e.target.value;
-    // Verifica se o valor inserido é numérico
     if (!isNaN(value)) {
       setNumberChecked(value); // Atualiza o estado apenas se for numérico
     }
   }
 
   const closeMenu = () => {
-      menuRef.current.style.display = 'none';
-
-      setMenuShow(false)
+    menuRef.current.style.display = 'none';
+    setMenuShow(false)
   }
-
 
   const girarReload = () => {
     const icone = document.getElementById('reload-saldo');
     icone.classList.toggle('reload-rotacionado');
+
+    // Atualiza o saldo sempre que o ícone for clicado
+    const storedSaldo = localStorage.getItem('saldo');
+    if (storedSaldo) {
+      setSaldo(parseFloat(storedSaldo));  // Converte para float
+    }
   }
 
   const handleLogin = () => {
     let telefone = numberRef.current.value;
     let senha = passwordRef.current.value;
 
-    // Buscar as credenciais salvas no localStorage
     let savedTelefone = localStorage.getItem('telefone');
     let savedSenha = localStorage.getItem('senha');
 
-    // Verificar se as credenciais passadas pelo usuário são válidas
     if (telefone === savedTelefone && senha === savedSenha) {
       setIsLogged(true);
       closeModal();
@@ -58,12 +59,10 @@ const Navbar = () => {
     let telefone = numberRef.current.value;
     let senha = passwordRef.current.value;
 
-    // Salvar os dados no localStorage
     localStorage.setItem('telefone', telefone);
     localStorage.setItem('senha', senha);
 
-    // Simular o sucesso do registro
-    const isRegistered = true; // Aqui você pode verificar se os dados foram realmente salvos corretamente, se necessário
+    const isRegistered = true;
 
     if (isRegistered) {
       setIsLogged(true);
@@ -73,7 +72,6 @@ const Navbar = () => {
     }
   }
 
-
   const menuAction = () => {
     if(menuShow === false){
       menuRef.current.style.display = 'flex';
@@ -81,7 +79,6 @@ const Navbar = () => {
     }
     if(menuShow === true){
       menuRef.current.style.display = 'none';
-
       setMenuShow(false)
     }
   }
@@ -101,6 +98,7 @@ const Navbar = () => {
     modalRef.current.style.display = 'none';
     passwordRef.current.type = 'password'
   }
+
   const loginCaller = () => {
     setAction('login')
     registrarRef.current.style.backgroundColor = '#523C3F';
@@ -109,6 +107,7 @@ const Navbar = () => {
     entrarRef.current.style.backgroundColor = '#FFE34F';
     entrarRef.current.style.color = '#B94B6B';
   }
+
   const registerCaller = () => {
     setAction('register')
     entrarRef.current.style.backgroundColor = '#523C3F';
@@ -118,34 +117,43 @@ const Navbar = () => {
     registrarRef.current.style.color = '#B94B6B';
   }
 
+  // Recupera o saldo do localStorage ao carregar o componente
+  React.useEffect(() => {
+    const storedSaldo = localStorage.getItem('saldo');
+    if (storedSaldo) {
+      setSaldo(parseFloat(storedSaldo));  // Converte para float, caso já tenha um valor armazenado
+    } else {
+      setSaldo(0);  // Caso não exista saldo, define 0
+    }
+  }, []);
+
   return (
     <div className='limited-space-nav'>
-
       <div className='menu' ref={menuRef}>
         <Link className='link-style' to='/'>
-        <div className='menu-item' onClick={closeMenu}>
-          <i class="bi bi-border-all" id='t-icon'></i>
-          <span>Todos</span>
-        </div>
+          <div className='menu-item' onClick={closeMenu}>
+            <i className="bi bi-border-all" id='t-icon'></i>
+            <span>Todos</span>
+          </div>
         </Link>
         <Link className='link-style' to='/'>
-        <div className='menu-item' onClick={closeMenu}>
-          <i class="bi bi-dice-6-fill" id='s-icon'></i>
-          <span>Slots</span>
-        </div>
+          <div className='menu-item' onClick={closeMenu}>
+            <i className="bi bi-dice-6-fill" id='s-icon'></i>
+            <span>Slots</span>
+          </div>
         </Link>
-          <Link className='link-style' to='/recharge'>
+        <Link className='link-style' to='/recharge'>
           <div className='menu-item' onClick={() => closeMenu()}>
-            <i class="bi bi-piggy-bank-fill" id='d-icon'></i>
+            <i className="bi bi-piggy-bank-fill" id='d-icon'></i>
             <span>Depósito</span>
           </div>
-          </Link>
-          <Link className='link-style' to='/withdraw'>
+        </Link>
+        <Link className='link-style' to='/withdraw'>
           <div className='menu-item' onClick={() => closeMenu()}>
-            <i class="bi bi-cash-coin" id='sa-icon'></i>
+            <i className="bi bi-cash-coin" id='sa-icon'></i>
             <span>Saque</span>
           </div>
-          </Link>
+        </Link>
       </div>
 
       <div className='modal-account' ref={modalRef}>
@@ -162,22 +170,23 @@ const Navbar = () => {
             <input className='password-input' type="password" ref={passwordRef} placeholder='Senha' />
             {action === 'login' ? <span className='submit-form' onClick={() => handleLogin()}>Entrar</span> : <span className='submit-form' onClick={() => handleRegister()}>Cadastrar</span>}
             {action === 'login' ? (
-                <span className='esqueci-a-senha'>Esqueci a senha</span>
-              ) : (
-                <div>
-                  <input type="checkbox" id="termos-condicoes" />
-                  <label htmlFor="termos-condicoes" className='esqueci-a-senha'>
-                    Eu concordo com as Condições e Política de Privacidade
-                  </label>
-                </div>
-              )}
+              <span className='esqueci-a-senha'>Esqueci a senha</span>
+            ) : (
+              <div>
+                <input type="checkbox" id="termos-condicoes" />
+                <label htmlFor="termos-condicoes" className='esqueci-a-senha'>
+                  Eu concordo com as Condições e Política de Privacidade
+                </label>
+              </div>
+            )}
           </div>
-
         </div>
       </div>
 
       <i className="bi bi-list" id="hamburguer" onClick={() => menuAction()}></i>
-      <Link to='/'><img src="https://i.imgur.com/mraEE3y.png" alt="logo" /></Link>
+      <Link to='/'>
+        <img src="https://i.imgur.com/mraEE3y.png" alt="logo" />
+      </Link>
       <div className='action-account'>
         {isLogged === false ? (
           <div className='login-register-btn'>
@@ -188,16 +197,16 @@ const Navbar = () => {
           <div className='saldo-div'>
             <span className="reload-icon">
               <Link to="/recharge">
-                <i class="bi bi-plus-lg" id="adicionar-saldo"></i>
+                <i className="bi bi-plus-lg" id="adicionar-saldo"></i>
               </Link>
             </span>
-            <span className='saldo-span'>R$ 0</span>
+            <span className='saldo-span'>R$ {saldo}</span>
             <i className="bi bi-arrow-clockwise" id='reload-saldo' onClick={girarReload}></i>
           </div>
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
