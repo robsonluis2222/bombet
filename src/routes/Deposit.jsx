@@ -78,7 +78,7 @@ const Deposit = () => {
           onClick={handleQRCodeClick}  // Adiciona o manipulador de clique aqui
         />
         <span className='copiar-qr' onClick={copyCode}>Copiar QR CODE</span>
-        <input type="text" style={{ marginBottom: '40px' }} value={'00020101021226830014BR.GOV.BCB.PIX2561qrcodespix.sejaefi.com.br/v2/38d377954e2a43e091c2d70978397ff05204000053039865802BR5905EFISA6008SAOPAULO62070503***63042890'} ref={inputRef} readOnly />
+        <input type="text" style={{ marginBottom: '40px' }} value={'00020101021226830014BR.GOV.BCB.PIX2561qrcodespix.sejaefi.com.br/v2/841b4262935b4c6b9b6dc601a984765a5204000053039865802BR5905EFISA6008SAOPAULO62070503***6304EC48'} ref={inputRef} readOnly />
       </div>
     </div>
   );
